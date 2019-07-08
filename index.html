@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Kanban board</title>
+  <link rel="stylesheet" href="sass\style.css">
+</head>
+<body>
+  <!-- div ibejmujący całą tablicę -->
+	<div id="board" class="board">
+    <h1>Kanban board</h1>
+    <button class="create-column">Add a column</button>
+    <div class="column-container"></div>
+  </div>
+    <!-- skrypt mustache generujący szablon kolumny -->
+    <script id="column-template" type="x-tmpl-mustache">
+        <div class="column">
+            <h2 class="column-title">{{ name }}</h2>
+            <ul id={{ id }} class="column-card-list"></ul>
+            <div class="column-buttons">
+            <button class="btn-delete">X</button>
+            <button class="add-card">Add a card</button>
+            </div>
+        </div>
+    </script>
+    <!-- skrypt mustache generujący szablon karty -->
+    <script id="card-template" type="x-tmpl-mustache">
+        <div class="card">
+          <p class="card-description">{{ description }}</p>
+          <button class="btn-delete">x</button>
+        </div
+      </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+  <!-- biblioteka sortable pozwala m.in. na używanie drad&drop na stronie -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.6.0/Sortable.min.js"></script>
+  <script src="js\script.js"></script>
+</body>
+</html>
