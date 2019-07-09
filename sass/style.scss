@@ -1,54 +1,125 @@
+//VARIABLES
+$card-background-color: #edc7b7;
+$btn-add-background-color: #123c69;
+$btn-delete-background-color:#ac3b61;
+$column-background-color: #bab2b5;
+$body-background-color: #eee2dc;
+$font-color: #000000;
+$btn-font-color: #ffffff;
+
+
+
+
+
 body {
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 700;
+    background-color: $body-background-color;
+    color: $font-color;
 }
 .board {
     display: flex;
     flex-direction: column;
     justify-items: center;
     text-align: center;
-    .create-column {
-        width: 100px;
+    .create-column {//button
+        width: 30vw;
         margin: 0 auto;
-        margin-bottom: 20px
+        margin-bottom: 20px;
+        height: 50px;
+        background-color: $btn-add-background-color;
+        border: 1px solid $btn-add-background-color;
+        //border-radius: 15px;
+        font-weight: 700;
+        color: $btn-font-color;
     }
     .column-container {
         width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
-        min-height: 50vh;
+        flex-wrap: wrap;
+        justify-content: center;
+        div {
+            //ten div generuje się sam, w miarę dodawania kart sam się rozszerza i rozpycha layout
+            //max-width = column max-width + margin left + margin right
+            max-width: 370px;
+        }
         .column {
             position: relative;
-            border: 1px solid green;
-            border-radius: 5px;
-            width: 30vw;
-            height: 100%;
+            background-color: $column-background-color;
+            border: 0 solid $column-background-color;
+            width: 30%;
+            min-width: 360px;
+            height: auto;
+            min-height: 360px;
+            text-align: left;
+            margin: 0 5px;
+            padding-bottom: 60px;
             .column-title {
                 text-align: center;
+                margin: 10px 0;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                background-color: $btn-add-background-color;
+                color: $btn-font-color;
+                font-weight: 500;
             }
-            .card {
-                text-align: left;
-                padding: 10px;
-                background-color: aquamarine;
-                border: 1px solid aquamarine;
-                border-radius: 5px;
-                margin-bottom: 16px;
-            }
-            ul {
+            .column-card-list {
+                width: 100%;
                 list-style: none;
-                padding: 10px;
-                margin: 8px;
-            }
-            .column-buttons {
-                position: absolute;
-                right: 5px;
-                bottom: 5px;
-                margin-top: 10px;
-
+                padding: 0;
+                margin: 0;
                 display: flex;
-                justify-content: flex-end;
+                flex-direction: row;
+                flex-wrap: wrap;
+                li {
+                    width: 50%;
+                .card {
+                    margin: 0;
+                    text-align: left;
+                    width: 100%;
+                    background-color: $card-background-color;
+                    //border-bottom: 1px solid $column-background-color;
+                    .card-description {
+                        height: 50px;
+                        margin-top: 0px;
+                        margin-left: 5px;
+                        padding-top: 10px;
+                    }
+                    .btn-delete-card {
+                        @extend .create-column;
+                            width: 100%;
+                            padding: auto 5px;
+                            margin-bottom: 0;
+                            background-color: $btn-delete-background-color;
+                            border: 1px solid $btn-delete-background-color;
+                    }
+                }
+            }
+        }
+            .column-buttons {
+                width: 100%;
+                position: absolute;
+                right: 0px;
+                bottom: 0px;
+                display: flex;
+                justify-content: space-around;
+                .btn-delete {
+                    @extend .create-column;
+                    width: 50%;
+                    margin-bottom: 0;
+                    padding: auto 10px;
+                    background-color: $btn-delete-background-color;
+                    border: 1px solid $btn-delete-background-color;
+                }
+                .add-card {
+                    @extend .btn-delete;
+                    background-color: $btn-add-background-color;
+                    border: 1px solid $btn-add-background-color;
+                }
             }
         }
     }
