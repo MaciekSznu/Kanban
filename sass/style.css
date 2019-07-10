@@ -89,6 +89,7 @@ body {
           flex-direction: row;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  min-height: 100px;
 }
 
 .board .column-container .column .column-card-list li {

@@ -83,7 +83,8 @@ document.addEventListener('DOMContentLoaded', function() {
       var el = document.getElementById(id);
       var sortable = Sortable.create(el, {
         group: 'kanban',
-        sort: true
+        sort: true,
+        dropOnEmpty: true,
       });
     };
     //funkcja obsługująca przycisk dodający kolumnę
